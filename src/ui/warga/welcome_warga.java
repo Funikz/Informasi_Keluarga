@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.admin;
+package ui.warga;
 
+import ui.admin.*;
 import ui.welcome.*;
 
 /**
  *
  * @author Zidan
  */
-public class welcome extends javax.swing.JFrame {
+public class welcome_warga extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public welcome() {
+    public welcome_warga() {
         initComponents();
     }
 
@@ -32,7 +33,6 @@ public class welcome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         welcome_admin = new javax.swing.JLabel();
         welcome_admin1 = new javax.swing.JLabel();
-        btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
         btn_keluarga = new javax.swing.JLabel();
         btn_silsi = new javax.swing.JLabel();
@@ -55,26 +55,8 @@ public class welcome extends javax.swing.JFrame {
 
         welcome_admin1.setFont(new java.awt.Font("Segoe UI", 0, 96)); // NOI18N
         welcome_admin1.setForeground(new java.awt.Color(255, 255, 255));
-        welcome_admin1.setText("Admin!");
-        jPanel1.add(welcome_admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, -1, -1));
-
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
-        btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_manaj.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_manajMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_manajMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_manajMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_manajMouseReleased(evt);
-            }
-        });
-        jPanel1.add(btn_manaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 280, -1));
+        welcome_admin1.setText("Warga!");
+        jPanel1.add(welcome_admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, -1, -1));
 
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_dataRT.png"))); // NOI18N
         btn_datart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -92,7 +74,7 @@ public class welcome extends javax.swing.JFrame {
                 btn_datartMouseReleased(evt);
             }
         });
-        jPanel1.add(btn_datart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 280, -1));
+        jPanel1.add(btn_datart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 280, -1));
 
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_kel.png"))); // NOI18N
         btn_keluarga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -110,7 +92,7 @@ public class welcome extends javax.swing.JFrame {
                 btn_keluargaMouseReleased(evt);
             }
         });
-        jPanel1.add(btn_keluarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 280, -1));
+        jPanel1.add(btn_keluarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 280, -1));
 
         btn_silsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_silsi.png"))); // NOI18N
         btn_silsi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -128,7 +110,7 @@ public class welcome extends javax.swing.JFrame {
                 btn_silsiMouseReleased(evt);
             }
         });
-        jPanel1.add(btn_silsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 280, -1));
+        jPanel1.add(btn_silsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 280, -1));
 
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_logout.png"))); // NOI18N
         btn_logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -171,29 +153,6 @@ public class welcome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_manajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseEntered
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj1.png")));
-    }//GEN-LAST:event_btn_manajMouseEntered
-
-    private void btn_manajMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseExited
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj.png")));
-    }//GEN-LAST:event_btn_manajMouseExited
-
-    private void btn_manajMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMousePressed
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj2.png")));
-        
-        this.dispose();
-        new ui.admin.form_manajemen().setVisible(true);
-    }//GEN-LAST:event_btn_manajMousePressed
-
-    private void btn_manajMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseReleased
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj1.png")));
-    }//GEN-LAST:event_btn_manajMouseReleased
-
     private void btn_datartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseEntered
         // TODO add your handling code here:
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_dataRT1.png")));
@@ -207,6 +166,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_datartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMousePressed
         // TODO add your handling code here:
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_dataRT2.png")));
+        
+        this.dispose();
+        new ui.warga.form_dataper_rt_warga().setVisible(true);
     }//GEN-LAST:event_btn_datartMousePressed
 
     private void btn_datartMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseReleased
@@ -227,6 +189,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_keluargaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMousePressed
         // TODO add your handling code here:
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_kel2.png")));
+        
+        this.dispose();
+        new ui.warga.form_datakeluarga_warga().setVisible(true);
     }//GEN-LAST:event_btn_keluargaMousePressed
 
     private void btn_keluargaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMouseReleased
@@ -247,6 +212,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_silsiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMousePressed
         // TODO add your handling code here:
         btn_silsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_silsi2.png")));
+        
+        this.dispose();
+        new ui.warga.form_silsilah_warga().setVisible(true);
     }//GEN-LAST:event_btn_silsiMousePressed
 
     private void btn_silsiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMouseReleased
@@ -267,6 +235,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
+        
+        this.dispose();
+        new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
 
     private void btn_logoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseReleased
@@ -291,21 +262,27 @@ public class welcome extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome_warga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome_warga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome_warga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome_warga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new welcome().setVisible(true);
+                new welcome_warga().setVisible(true);
             }
         });
     }
@@ -315,7 +292,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel btn_datart;
     private javax.swing.JLabel btn_keluarga;
     private javax.swing.JLabel btn_logout;
-    private javax.swing.JLabel btn_manaj;
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JLabel dashboardkiri;
     private javax.swing.JPanel jPanel1;

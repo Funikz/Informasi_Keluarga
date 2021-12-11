@@ -29,6 +29,7 @@ public class form_manajemen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        group_posisi = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
@@ -36,6 +37,22 @@ public class form_manajemen extends javax.swing.JFrame {
         btn_silsi = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
+        Label_NIK = new javax.swing.JLabel();
+        Label_nama = new javax.swing.JLabel();
+        Label_namapanggil = new javax.swing.JLabel();
+        Label_alamat = new javax.swing.JLabel();
+        Label_sebagai = new javax.swing.JLabel();
+        field_nik = new javax.swing.JTextField();
+        field_nama = new javax.swing.JTextField();
+        field_nama1 = new javax.swing.JTextField();
+        field_alamat = new javax.swing.JTextField();
+        radio_kepkel = new javax.swing.JRadioButton();
+        radio_ibu = new javax.swing.JRadioButton();
+        radio_anak = new javax.swing.JRadioButton();
+        btn_resetform = new javax.swing.JButton();
+        btn_insert = new javax.swing.JButton();
+        btn_update = new javax.swing.JButton();
+        btn_delete = new javax.swing.JButton();
         dashboardkiri = new javax.swing.JLabel();
         panel_menu = new javax.swing.JLabel();
         bgkota = new javax.swing.JLabel();
@@ -47,22 +64,8 @@ public class form_manajemen extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
-        btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_manaj.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_manajMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_manajMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_manajMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_manajMouseReleased(evt);
-            }
-        });
+        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj1.png"))); // NOI18N
+        btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(btn_manaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 280, -1));
 
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_dataRT.png"))); // NOI18N
@@ -140,6 +143,109 @@ public class form_manajemen extends javax.swing.JFrame {
         logo_mini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo_mini.png"))); // NOI18N
         jPanel1.add(logo_mini, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
+        Label_NIK.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_NIK.setForeground(new java.awt.Color(255, 255, 255));
+        Label_NIK.setText("NIK");
+        jPanel1.add(Label_NIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+
+        Label_nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_nama.setForeground(new java.awt.Color(255, 255, 255));
+        Label_nama.setText("Nama Lengkap");
+        jPanel1.add(Label_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        Label_namapanggil.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_namapanggil.setForeground(new java.awt.Color(255, 255, 255));
+        Label_namapanggil.setText("Nama Panggilan");
+        jPanel1.add(Label_namapanggil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
+
+        Label_alamat.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_alamat.setForeground(new java.awt.Color(255, 255, 255));
+        Label_alamat.setText("Alamat");
+        jPanel1.add(Label_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+
+        Label_sebagai.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_sebagai.setForeground(new java.awt.Color(255, 255, 255));
+        Label_sebagai.setText("Sebagai :");
+        jPanel1.add(Label_sebagai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
+
+        field_nik.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_nik.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nik.setBorder(null);
+        field_nik.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+
+        field_nama.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_nama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nama.setBorder(null);
+        field_nama.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+
+        field_nama1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_nama1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nama1.setBorder(null);
+        field_nama1.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
+
+        field_alamat.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_alamat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_alamat.setBorder(null);
+        field_alamat.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
+
+        group_posisi.add(radio_kepkel);
+        radio_kepkel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        radio_kepkel.setForeground(new java.awt.Color(255, 255, 255));
+        radio_kepkel.setText("Kepala Keluarga");
+        jPanel1.add(radio_kepkel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
+
+        group_posisi.add(radio_ibu);
+        radio_ibu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        radio_ibu.setForeground(new java.awt.Color(255, 255, 255));
+        radio_ibu.setText("Ibu");
+        jPanel1.add(radio_ibu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, -1, -1));
+
+        group_posisi.add(radio_anak);
+        radio_anak.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        radio_anak.setForeground(new java.awt.Color(255, 255, 255));
+        radio_anak.setText("Anak");
+        jPanel1.add(radio_anak, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, -1, -1));
+
+        btn_resetform.setBackground(new java.awt.Color(241, 196, 15));
+        btn_resetform.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_resetform.setForeground(new java.awt.Color(255, 255, 255));
+        btn_resetform.setText("Reset Form");
+        btn_resetform.setBorder(null);
+        btn_resetform.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_resetform.setPreferredSize(new java.awt.Dimension(160, 50));
+        jPanel1.add(btn_resetform, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 180, -1));
+
+        btn_insert.setBackground(new java.awt.Color(39, 174, 96));
+        btn_insert.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_insert.setForeground(new java.awt.Color(255, 255, 255));
+        btn_insert.setText("Insert");
+        btn_insert.setBorder(null);
+        btn_insert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_insert.setPreferredSize(new java.awt.Dimension(160, 50));
+        jPanel1.add(btn_insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, -1, -1));
+
+        btn_update.setBackground(new java.awt.Color(0, 151, 230));
+        btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_update.setForeground(new java.awt.Color(255, 255, 255));
+        btn_update.setText("Update");
+        btn_update.setBorder(null);
+        btn_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_update.setPreferredSize(new java.awt.Dimension(160, 50));
+        jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 530, -1, -1));
+
+        btn_delete.setBackground(new java.awt.Color(232, 65, 24));
+        btn_delete.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_delete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_delete.setText("Delete");
+        btn_delete.setBorder(null);
+        btn_delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_delete.setPreferredSize(new java.awt.Dimension(160, 50));
+        jPanel1.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 590, -1, -1));
+
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -163,26 +269,6 @@ public class form_manajemen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_manajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseEntered
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj1.png")));
-    }//GEN-LAST:event_btn_manajMouseEntered
-
-    private void btn_manajMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseExited
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj.png")));
-    }//GEN-LAST:event_btn_manajMouseExited
-
-    private void btn_manajMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMousePressed
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj2.png")));
-    }//GEN-LAST:event_btn_manajMousePressed
-
-    private void btn_manajMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseReleased
-        // TODO add your handling code here:
-        btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj1.png")));
-    }//GEN-LAST:event_btn_manajMouseReleased
-
     private void btn_datartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseEntered
         // TODO add your handling code here:
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_dataRT1.png")));
@@ -196,6 +282,9 @@ public class form_manajemen extends javax.swing.JFrame {
     private void btn_datartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMousePressed
         // TODO add your handling code here:
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_dataRT2.png")));
+        
+        this.dispose();
+        new ui.admin.form_dataper_rt().setVisible(true);
     }//GEN-LAST:event_btn_datartMousePressed
 
     private void btn_datartMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseReleased
@@ -216,6 +305,9 @@ public class form_manajemen extends javax.swing.JFrame {
     private void btn_keluargaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMousePressed
         // TODO add your handling code here:
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_kel2.png")));
+        
+        this.dispose();
+        new ui.admin.form_datakeluarga().setVisible(true);
     }//GEN-LAST:event_btn_keluargaMousePressed
 
     private void btn_keluargaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMouseReleased
@@ -236,6 +328,9 @@ public class form_manajemen extends javax.swing.JFrame {
     private void btn_silsiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMousePressed
         // TODO add your handling code here:
         btn_silsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_silsi2.png")));
+        
+        this.dispose();
+        new ui.admin.form_silsilah().setVisible(true);
     }//GEN-LAST:event_btn_silsiMousePressed
 
     private void btn_silsiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMouseReleased
@@ -256,6 +351,9 @@ public class form_manajemen extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
+        
+        this.dispose();
+        new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
 
     private void btn_logoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseReleased
@@ -302,15 +400,32 @@ public class form_manajemen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_NIK;
+    private javax.swing.JLabel Label_alamat;
+    private javax.swing.JLabel Label_nama;
+    private javax.swing.JLabel Label_namapanggil;
+    private javax.swing.JLabel Label_sebagai;
     private javax.swing.JLabel bgkota;
     private javax.swing.JLabel btn_datart;
+    private javax.swing.JButton btn_delete;
+    private javax.swing.JButton btn_insert;
     private javax.swing.JLabel btn_keluarga;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JLabel btn_manaj;
+    private javax.swing.JButton btn_resetform;
     private javax.swing.JLabel btn_silsi;
+    private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
+    private javax.swing.JTextField field_alamat;
+    private javax.swing.JTextField field_nama;
+    private javax.swing.JTextField field_nama1;
+    private javax.swing.JTextField field_nik;
+    private javax.swing.ButtonGroup group_posisi;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
+    private javax.swing.JRadioButton radio_anak;
+    private javax.swing.JRadioButton radio_ibu;
+    private javax.swing.JRadioButton radio_kepkel;
     // End of variables declaration//GEN-END:variables
 }
