@@ -11,12 +11,12 @@ import ui.welcome.*;
  *
  * @author Zidan
  */
-public class welcome extends javax.swing.JFrame {
+public class form_manajemen extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public welcome() {
+    public form_manajemen() {
         initComponents();
     }
 
@@ -30,8 +30,6 @@ public class welcome extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        welcome_admin = new javax.swing.JLabel();
-        welcome_admin1 = new javax.swing.JLabel();
         btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
         btn_keluarga = new javax.swing.JLabel();
@@ -39,6 +37,7 @@ public class welcome extends javax.swing.JFrame {
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
         dashboardkiri = new javax.swing.JLabel();
+        panel_menu = new javax.swing.JLabel();
         bgkota = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,16 +46,6 @@ public class welcome extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        welcome_admin.setFont(new java.awt.Font("Segoe UI", 0, 96)); // NOI18N
-        welcome_admin.setForeground(new java.awt.Color(255, 255, 255));
-        welcome_admin.setText("Selamat Datang");
-        jPanel1.add(welcome_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
-
-        welcome_admin1.setFont(new java.awt.Font("Segoe UI", 0, 96)); // NOI18N
-        welcome_admin1.setForeground(new java.awt.Color(255, 255, 255));
-        welcome_admin1.setText("Admin!");
-        jPanel1.add(welcome_admin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, -1, -1));
 
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
         btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -154,6 +143,9 @@ public class welcome extends javax.swing.JFrame {
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        panel_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/panel_menu.png"))); // NOI18N
+        jPanel1.add(panel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+
         bgkota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_adminuserkota.png"))); // NOI18N
         jPanel1.add(bgkota, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, -1));
 
@@ -184,9 +176,6 @@ public class welcome extends javax.swing.JFrame {
     private void btn_manajMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMousePressed
         // TODO add your handling code here:
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj2.png")));
-        
-        this.dispose();
-        new ui.admin.form_manajemen().setVisible(true);
     }//GEN-LAST:event_btn_manajMousePressed
 
     private void btn_manajMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseReleased
@@ -291,21 +280,23 @@ public class welcome extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(form_manajemen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(form_manajemen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(form_manajemen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(form_manajemen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new welcome().setVisible(true);
+                new form_manajemen().setVisible(true);
             }
         });
     }
@@ -320,7 +311,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel dashboardkiri;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo_mini;
-    private javax.swing.JLabel welcome_admin;
-    private javax.swing.JLabel welcome_admin1;
+    private javax.swing.JLabel panel_menu;
     // End of variables declaration//GEN-END:variables
 }
