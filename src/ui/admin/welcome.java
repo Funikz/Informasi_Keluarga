@@ -169,6 +169,7 @@ public class welcome extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_manajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseEntered
@@ -267,6 +268,8 @@ public class welcome extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
+        this.dispose();
+        new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
 
     private void btn_logoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseReleased

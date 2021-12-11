@@ -5,6 +5,13 @@
  */
 package ui.welcome;
 
+import Database.Koneksi;
+import ObjekClass.user;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import ui.admin.form_manajemen;
+import ui.admin.welcome;
+
 /**
  *
  * @author Zidan
@@ -16,6 +23,14 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+    }
+
+    user Data = new user();
+
+    public void empty_data() {
+        User_Field.setText("");
+        Pass_Field.setText("");
+
     }
 
     /**
@@ -31,7 +46,7 @@ public class login extends javax.swing.JFrame {
         Keluarga = new javax.swing.JLabel();
         Informasi = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_login = new javax.swing.JButton();
         Pass_Field = new javax.swing.JPasswordField();
         User_Field = new javax.swing.JTextField();
         Lbl_Daftar = new javax.swing.JLabel();
@@ -60,12 +75,17 @@ public class login extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Logo.png"))); // NOI18N
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(39, 174, 96));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Masuk");
-        jButton1.setBorder(null);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 380, 90));
+        btn_login.setBackground(new java.awt.Color(39, 174, 96));
+        btn_login.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btn_login.setForeground(new java.awt.Color(255, 255, 255));
+        btn_login.setText("Masuk");
+        btn_login.setBorder(null);
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 380, 90));
 
         Pass_Field.setFont(new java.awt.Font("Anonymous Pro", 0, 24)); // NOI18N
         Pass_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -118,6 +138,7 @@ public class login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Lbl_DaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lbl_DaftarMouseClicked
@@ -125,6 +146,40 @@ public class login extends javax.swing.JFrame {
         this.dispose();
         new ui.welcome.regis().setVisible(true);
     }//GEN-LAST:event_Lbl_DaftarMouseClicked
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        Data.setUsername(User_Field.getText());
+        Data.setPassword(Pass_Field.getText());
+        Data.cariAdmin();
+        Data.cari();
+        Data.cariUser();
+        
+
+        if (User_Field.getText().equals("")
+                || String.valueOf(Pass_Field.getPassword()).equals("")) {
+            JOptionPane.showMessageDialog(this, "Form Login Tidak Boleh Kosong", "alert..!",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (Data.getPosisi().equals("Admin")) {
+            JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai Admin`",
+                    "succes", JOptionPane.INFORMATION_MESSAGE);
+            welcome welcom = new welcome();
+            welcom.setVisible(true);
+            dispose();
+        } else if (Data.getPosisi().equals("User")) {
+            JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai User`",
+                    "succes", JOptionPane.INFORMATION_MESSAGE);
+            form_manajemen v = new form_manajemen();
+            v.setVisible(true);
+            dispose();
+        } else if (Data.getPosisi().equals("Tidakditemukan")){
+            JOptionPane.showMessageDialog(this,
+                    "Username atau Password salah",
+                    "Login Error", JOptionPane.ERROR_MESSAGE);
+            empty_data();
+        }
+
+
+    }//GEN-LAST:event_btn_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,7 +225,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField Pass_Field;
     private javax.swing.JTextField User_Field;
     private javax.swing.JLabel belumpunyaakun;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_login;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel password;
     private javax.swing.JLabel username;

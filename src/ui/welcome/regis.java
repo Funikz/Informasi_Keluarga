@@ -5,17 +5,32 @@
  */
 package ui.welcome;
 
+import ObjekClass.user;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Zidan
  */
 public class regis extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login
-     */
     public regis() {
         initComponents();
+        this.setLocationRelativeTo(null);
+    }
+
+    user data = new user();
+
+    public void empty_data() {
+        User_Field.setText("");
+        Pass_Field.setText("");
+        PassConf_Field.setText("");
+
     }
 
     /**
@@ -33,9 +48,11 @@ public class regis extends javax.swing.JFrame {
         Keluarga = new javax.swing.JLabel();
         Informasi = new javax.swing.JLabel();
         Btn_Regis = new javax.swing.JButton();
-        Pass_Field = new javax.swing.JPasswordField();
         User_Field = new javax.swing.JTextField();
+        Pass_Field = new javax.swing.JPasswordField();
+        PassConf_Field = new javax.swing.JPasswordField();
         Lbl_Masuk = new javax.swing.JLabel();
+        Ulang_password = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         password = new javax.swing.JLabel();
         belumpunyaakun = new javax.swing.JLabel();
@@ -74,19 +91,26 @@ public class regis extends javax.swing.JFrame {
                 Btn_RegisActionPerformed(evt);
             }
         });
-        jPanel1.add(Btn_Regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 380, 90));
-
-        Pass_Field.setFont(new java.awt.Font("Anonymous Pro", 0, 18)); // NOI18N
-        Pass_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Pass_Field.setBorder(null);
-        Pass_Field.setMinimumSize(new java.awt.Dimension(13, 31));
-        jPanel1.add(Pass_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 460, 80));
+        jPanel1.add(Btn_Regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 320, 60));
 
         User_Field.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         User_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         User_Field.setBorder(null);
         User_Field.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(User_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 460, 85));
+        jPanel1.add(User_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 410, 60));
+
+        Pass_Field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Pass_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(Pass_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 410, 60));
+
+        PassConf_Field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PassConf_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PassConf_Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PassConf_FieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(PassConf_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 280, 410, 60));
 
         Lbl_Masuk.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Lbl_Masuk.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,6 +122,11 @@ public class regis extends javax.swing.JFrame {
         });
         jPanel1.add(Lbl_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 580, -1, -1));
 
+        Ulang_password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Ulang_password.setForeground(new java.awt.Color(255, 255, 255));
+        Ulang_password.setText("Ulang Password");
+        jPanel1.add(Ulang_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 360, -1, -1));
+
         username.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username");
@@ -106,7 +135,7 @@ public class regis extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("Password");
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 280, -1, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, -1, -1));
 
         belumpunyaakun.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         belumpunyaakun.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,10 +157,32 @@ public class regis extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_RegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RegisActionPerformed
-        // TODO add your handling code here:
+        boolean same = Arrays.equals(Pass_Field.getPassword(), PassConf_Field.getPassword());  //MENDEKLARASIKAN BOOLEAN UNTUK KONDISI PASSWORD DAN ULANG PASSWORD SAMA
+        boolean notsame = !same;                                                               //MENDEKLARASIKAN BOOLEAN UNTUK KONDISI PASSWORD DAN ULANG PASSWORD TIDAK SAMA
+      
+            if (User_Field.getText().equals("")                                                 //PERCABANGAN JIKA TEXTFIELD USER KOSONG
+                    || User_Field.getText().equals("")                                          //PERCABANGAN JIKA TEXTFIELD NAMA KOSONG
+                    || String.valueOf(Pass_Field.getPassword()).equals("")                      //PERCABANGAN JIKA TEXTFIELD PASSWORD KOSONG
+                    || String.valueOf(PassConf_Field.getPassword()).equals(""))                 //PERCABANGAN JIKA TEXTFIELD ULANG PASSWORD KOSONG
+            {
+                JOptionPane.showMessageDialog(this, "Data tidak boleh kosong", "error", JOptionPane.ERROR_MESSAGE);     //AKAN KELUAR TAMPILAN JOPTION ERROR
+                empty_data();                                                                  //MENGKOSONGKAN SEMUA TEXTFIELD
+            } else if (same) {                                                                  //PERCABANGAN JIKA PASSWORD DAN ULANG PASSWORD SAMA
+                data.setUsername(User_Field.getText());
+                data.setPassword(Pass_Field.getText());
+
+                data.simpan();                                                                          //MENGKOSONGKAN SEMUA TEXTFIELD
+            } else if (notsame) {                                                                   //JIKA PASSWORD DAN ULANG PASSWORD TIDAK SAMA
+                JOptionPane.showMessageDialog                                                       //MENAMPILKAN JOPTIONMESSAGE
+                        (this, "Password doesn't match", "error", JOptionPane.ERROR_MESSAGE);       //BERISI PASSWORD DOESN'T MATCH
+                PassConf_Field.setText("");                                                           //TEXTFIELD ULANG PASSWORD AKAN DI KOSONGI
+            }
+
+        
     }//GEN-LAST:event_Btn_RegisActionPerformed
 
     private void Lbl_MasukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lbl_MasukMouseClicked
@@ -139,6 +190,10 @@ public class regis extends javax.swing.JFrame {
         this.dispose();
         new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_Lbl_MasukMouseClicked
+
+    private void PassConf_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassConf_FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PassConf_FieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +238,9 @@ public class regis extends javax.swing.JFrame {
     private javax.swing.JLabel Keluarga;
     private javax.swing.JLabel Lbl_Masuk;
     private javax.swing.JLabel Logo;
+    private javax.swing.JPasswordField PassConf_Field;
     private javax.swing.JPasswordField Pass_Field;
+    private javax.swing.JLabel Ulang_password;
     private javax.swing.JTextField User_Field;
     private javax.swing.JLabel belumpunyaakun;
     private javax.swing.JPanel jPanel1;
