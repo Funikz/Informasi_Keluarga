@@ -127,12 +127,12 @@ public class regis extends javax.swing.JFrame {
         Ulang_password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Ulang_password.setForeground(new java.awt.Color(255, 255, 255));
         Ulang_password.setText("Ulang Password");
-        jPanel1.add(Ulang_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 360, -1, -1));
+        jPanel1.add(Ulang_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 360, -1, -1));
 
         username.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username");
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 110, -1, -1));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 110, -1, -1));
 
         password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));

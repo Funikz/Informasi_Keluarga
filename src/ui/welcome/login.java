@@ -162,15 +162,13 @@ public class login extends javax.swing.JFrame {
         } else if (Data.getPosisi().equals("Admin")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai Admin`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
-            welcome welcom = new welcome();
-            welcom.setVisible(true);
-            dispose();
+            this.dispose();
+            new ui.admin.welcome().setVisible(true);
         } else if (Data.getPosisi().equals("User")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai User`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
-            form_manajemen v = new form_manajemen();
-            v.setVisible(true);
-            dispose();
+            this.dispose();
+            new ui.warga.welcome_warga().setVisible(true);
         } else if (Data.getPosisi().equals("Tidakditemukan")){
             JOptionPane.showMessageDialog(this,
                     "Username atau Password salah",
