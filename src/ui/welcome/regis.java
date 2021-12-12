@@ -91,7 +91,7 @@ public class regis extends javax.swing.JFrame {
                 Btn_RegisActionPerformed(evt);
             }
         });
-        jPanel1.add(Btn_Regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 320, 60));
+        jPanel1.add(Btn_Regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 350, 80));
 
         User_Field.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         User_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -99,18 +99,20 @@ public class regis extends javax.swing.JFrame {
         User_Field.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(User_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 410, 60));
 
-        Pass_Field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Pass_Field.setFont(new java.awt.Font("Anonymous Pro", 0, 24)); // NOI18N
         Pass_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Pass_Field.setBorder(null);
         jPanel1.add(Pass_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, 410, 60));
 
-        PassConf_Field.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PassConf_Field.setFont(new java.awt.Font("Anonymous Pro", 0, 24)); // NOI18N
         PassConf_Field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PassConf_Field.setBorder(null);
         PassConf_Field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PassConf_FieldActionPerformed(evt);
             }
         });
-        jPanel1.add(PassConf_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 280, 410, 60));
+        jPanel1.add(PassConf_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 410, 60));
 
         Lbl_Masuk.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Lbl_Masuk.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,12 +122,12 @@ public class regis extends javax.swing.JFrame {
                 Lbl_MasukMouseClicked(evt);
             }
         });
-        jPanel1.add(Lbl_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 580, -1, -1));
+        jPanel1.add(Lbl_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 600, -1, -1));
 
         Ulang_password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Ulang_password.setForeground(new java.awt.Color(255, 255, 255));
         Ulang_password.setText("Ulang Password");
-        jPanel1.add(Ulang_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 360, -1, -1));
+        jPanel1.add(Ulang_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 360, -1, -1));
 
         username.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,12 +137,12 @@ public class regis extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("Password");
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, -1, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, -1, -1));
 
         belumpunyaakun.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         belumpunyaakun.setForeground(new java.awt.Color(255, 255, 255));
         belumpunyaakun.setText("Sudah punya akun?");
-        jPanel1.add(belumpunyaakun, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, -1, -1));
+        jPanel1.add(belumpunyaakun, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 600, -1, -1));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BackGround_Kota.png"))); // NOI18N
         jPanel1.add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
