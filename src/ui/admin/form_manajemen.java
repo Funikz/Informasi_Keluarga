@@ -267,6 +267,7 @@ public class form_manajemen extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_datartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseEntered
@@ -351,7 +352,10 @@ public class form_manajemen extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
+<<<<<<< HEAD
         
+=======
+>>>>>>> 5fe11b61032fb3a556f95f4d91f912a9246f9759
         this.dispose();
         new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
