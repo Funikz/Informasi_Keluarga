@@ -38,9 +38,9 @@ public class form_silsilah_warga extends javax.swing.JFrame {
         btn_silsi = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
-        Label_NIK = new javax.swing.JLabel();
+        Label_Nokk = new javax.swing.JLabel();
         Label_silsilah = new javax.swing.JLabel();
-        field_nik = new javax.swing.JTextField();
+        field_nokk = new javax.swing.JTextField();
         btn_update = new javax.swing.JButton();
         dashboardkiri = new javax.swing.JLabel();
         panel_menu = new javax.swing.JLabel();
@@ -120,21 +120,21 @@ public class form_silsilah_warga extends javax.swing.JFrame {
         logo_mini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo_mini.png"))); // NOI18N
         jPanel1.add(logo_mini, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        Label_NIK.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Label_NIK.setForeground(new java.awt.Color(255, 255, 255));
-        Label_NIK.setText("NIK (Kepala Keluarga)");
-        jPanel1.add(Label_NIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
+        Label_Nokk.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_Nokk.setForeground(new java.awt.Color(255, 255, 255));
+        Label_Nokk.setText("No. Kartu Keluarga");
+        jPanel1.add(Label_Nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
         Label_silsilah.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_silsilah.setForeground(new java.awt.Color(255, 255, 255));
         Label_silsilah.setText("Silsilah :");
         jPanel1.add(Label_silsilah, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
-        field_nik.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        field_nik.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nik.setBorder(null);
-        field_nik.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        field_nokk.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        field_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nokk.setBorder(null);
+        field_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
         btn_update.setBackground(new java.awt.Color(0, 151, 230));
         btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -288,7 +288,7 @@ public class form_silsilah_warga extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Label_NIK;
+    private javax.swing.JLabel Label_Nokk;
     private javax.swing.JLabel Label_silsilah;
     private javax.swing.JLabel bgkota;
     private javax.swing.JLabel btn_datart;
@@ -297,7 +297,7 @@ public class form_silsilah_warga extends javax.swing.JFrame {
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
-    private javax.swing.JTextField field_nik;
+    private javax.swing.JTextField field_nokk;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

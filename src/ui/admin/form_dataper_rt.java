@@ -38,7 +38,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
         logo_mini = new javax.swing.JLabel();
         Label_NIK = new javax.swing.JLabel();
         Label_dataperrt = new javax.swing.JLabel();
-        field_nik = new javax.swing.JTextField();
+        field_nokk = new javax.swing.JTextField();
         btn_update = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabel_per_rt = new javax.swing.JTable();
@@ -134,7 +134,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
 
         Label_NIK.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_NIK.setForeground(new java.awt.Color(255, 255, 255));
-        Label_NIK.setText("NIK (Kepala Keluarga)");
+        Label_NIK.setText("No. Kartu Keluarga");
         jPanel1.add(Label_NIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
         Label_dataperrt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -142,11 +142,11 @@ public class form_dataper_rt extends javax.swing.JFrame {
         Label_dataperrt.setText("Data Keluarga per - RT :");
         jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
-        field_nik.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        field_nik.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nik.setBorder(null);
-        field_nik.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        field_nokk.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        field_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nokk.setBorder(null);
+        field_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
         btn_update.setBackground(new java.awt.Color(0, 151, 230));
         btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -396,7 +396,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
-    private javax.swing.JTextField field_nik;
+    private javax.swing.JTextField field_nokk;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo_mini;

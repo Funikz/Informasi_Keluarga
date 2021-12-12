@@ -9,8 +9,8 @@ import Database.Koneksi;
 import ObjekClass.user;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
-import ui.admin.form_manajemen;
 import ui.admin.welcome;
+import ui.warga.welcome_warga;
 
 /**
  *
@@ -162,13 +162,15 @@ public class login extends javax.swing.JFrame {
         } else if (Data.getPosisi().equals("Admin")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai Admin`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
-            new ui.admin.welcome().setVisible(true);
+            welcome welcom = new welcome();
+            welcom.setVisible(true);
+            dispose();
         } else if (Data.getPosisi().equals("User")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai User`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
-            new ui.warga.welcome_warga().setVisible(true);
+            welcome_warga welcom1 = new welcome_warga();
+            welcom1.setVisible(true);
+            dispose();
         } else if (Data.getPosisi().equals("Tidakditemukan")){
             JOptionPane.showMessageDialog(this,
                     "Username atau Password salah",

@@ -41,14 +41,14 @@ public class form_manajemen extends javax.swing.JFrame {
         Label_nama = new javax.swing.JLabel();
         Label_namapanggil = new javax.swing.JLabel();
         Label_alamat = new javax.swing.JLabel();
-        Label_sebagai = new javax.swing.JLabel();
-        field_nik = new javax.swing.JTextField();
-        field_nama = new javax.swing.JTextField();
-        field_nama1 = new javax.swing.JTextField();
-        field_alamat = new javax.swing.JTextField();
-        radio_kepkel = new javax.swing.JRadioButton();
-        radio_ibu = new javax.swing.JRadioButton();
-        radio_anak = new javax.swing.JRadioButton();
+        field_nokk = new javax.swing.JTextField();
+        field_kepkel = new javax.swing.JTextField();
+        field_ibu = new javax.swing.JTextField();
+        field_anak3 = new javax.swing.JTextField();
+        Label_alamat1 = new javax.swing.JLabel();
+        field_anak2 = new javax.swing.JTextField();
+        Label_alamat2 = new javax.swing.JLabel();
+        field_anak1 = new javax.swing.JTextField();
         btn_resetform = new javax.swing.JButton();
         btn_insert = new javax.swing.JButton();
         btn_update = new javax.swing.JButton();
@@ -145,70 +145,69 @@ public class form_manajemen extends javax.swing.JFrame {
 
         Label_NIK.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_NIK.setForeground(new java.awt.Color(255, 255, 255));
-        Label_NIK.setText("NIK");
+        Label_NIK.setText("No. Kartu Keluarga");
         jPanel1.add(Label_NIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         Label_nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_nama.setForeground(new java.awt.Color(255, 255, 255));
-        Label_nama.setText("Nama Lengkap");
-        jPanel1.add(Label_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+        Label_nama.setText("Kepala Keluarga");
+        jPanel1.add(Label_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
 
         Label_namapanggil.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_namapanggil.setForeground(new java.awt.Color(255, 255, 255));
-        Label_namapanggil.setText("Nama Panggilan");
-        jPanel1.add(Label_namapanggil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
+        Label_namapanggil.setText("Ibu");
+        jPanel1.add(Label_namapanggil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
 
         Label_alamat.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_alamat.setForeground(new java.awt.Color(255, 255, 255));
-        Label_alamat.setText("Alamat");
-        jPanel1.add(Label_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+        Label_alamat.setText("Anak ke - 3");
+        jPanel1.add(Label_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
 
-        Label_sebagai.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Label_sebagai.setForeground(new java.awt.Color(255, 255, 255));
-        Label_sebagai.setText("Sebagai :");
-        jPanel1.add(Label_sebagai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, -1, -1));
+        field_nokk.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nokk.setBorder(null);
+        field_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 780, -1));
 
-        field_nik.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        field_nik.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nik.setBorder(null);
-        field_nik.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nik, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
+        field_kepkel.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_kepkel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_kepkel.setBorder(null);
+        field_kepkel.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_kepkel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 780, -1));
 
-        field_nama.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        field_nama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nama.setBorder(null);
-        field_nama.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, -1));
+        field_ibu.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_ibu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_ibu.setBorder(null);
+        field_ibu.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_ibu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 780, -1));
 
-        field_nama1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        field_nama1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nama1.setBorder(null);
-        field_nama1.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
+        field_anak3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_anak3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_anak3.setBorder(null);
+        field_anak3.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_anak3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, -1, -1));
 
-        field_alamat.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        field_alamat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_alamat.setBorder(null);
-        field_alamat.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_alamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
+        Label_alamat1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_alamat1.setForeground(new java.awt.Color(255, 255, 255));
+        Label_alamat1.setText("Anak ke - 2");
+        jPanel1.add(Label_alamat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
-        group_posisi.add(radio_kepkel);
-        radio_kepkel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        radio_kepkel.setForeground(new java.awt.Color(255, 255, 255));
-        radio_kepkel.setText("Kepala Keluarga");
-        jPanel1.add(radio_kepkel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
+        field_anak2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_anak2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_anak2.setBorder(null);
+        field_anak2.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_anak2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, -1, -1));
 
-        group_posisi.add(radio_ibu);
-        radio_ibu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        radio_ibu.setForeground(new java.awt.Color(255, 255, 255));
-        radio_ibu.setText("Ibu");
-        jPanel1.add(radio_ibu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, -1, -1));
+        Label_alamat2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_alamat2.setForeground(new java.awt.Color(255, 255, 255));
+        Label_alamat2.setText("Anak ke - 1");
+        jPanel1.add(Label_alamat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
-        group_posisi.add(radio_anak);
-        radio_anak.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        radio_anak.setForeground(new java.awt.Color(255, 255, 255));
-        radio_anak.setText("Anak");
-        jPanel1.add(radio_anak, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, -1, -1));
+        field_anak1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        field_anak1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_anak1.setBorder(null);
+        field_anak1.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_anak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, -1));
 
         btn_resetform.setBackground(new java.awt.Color(241, 196, 15));
         btn_resetform.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -217,7 +216,7 @@ public class form_manajemen extends javax.swing.JFrame {
         btn_resetform.setBorder(null);
         btn_resetform.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_resetform.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_resetform, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 180, -1));
+        jPanel1.add(btn_resetform, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 160, 90));
 
         btn_insert.setBackground(new java.awt.Color(39, 174, 96));
         btn_insert.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -226,7 +225,7 @@ public class form_manajemen extends javax.swing.JFrame {
         btn_insert.setBorder(null);
         btn_insert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_insert.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, -1, -1));
+        jPanel1.add(btn_insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 380, -1, 90));
 
         btn_update.setBackground(new java.awt.Color(0, 151, 230));
         btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -235,7 +234,7 @@ public class form_manajemen extends javax.swing.JFrame {
         btn_update.setBorder(null);
         btn_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_update.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 530, -1, -1));
+        jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, -1, 90));
 
         btn_delete.setBackground(new java.awt.Color(232, 65, 24));
         btn_delete.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -244,7 +243,7 @@ public class form_manajemen extends javax.swing.JFrame {
         btn_delete.setBorder(null);
         btn_delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_delete.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 590, -1, -1));
+        jPanel1.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 490, -1, 90));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -403,9 +402,10 @@ public class form_manajemen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label_NIK;
     private javax.swing.JLabel Label_alamat;
+    private javax.swing.JLabel Label_alamat1;
+    private javax.swing.JLabel Label_alamat2;
     private javax.swing.JLabel Label_nama;
     private javax.swing.JLabel Label_namapanggil;
-    private javax.swing.JLabel Label_sebagai;
     private javax.swing.JLabel bgkota;
     private javax.swing.JLabel btn_datart;
     private javax.swing.JButton btn_delete;
@@ -417,16 +417,15 @@ public class form_manajemen extends javax.swing.JFrame {
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
-    private javax.swing.JTextField field_alamat;
-    private javax.swing.JTextField field_nama;
-    private javax.swing.JTextField field_nama1;
-    private javax.swing.JTextField field_nik;
+    private javax.swing.JTextField field_anak1;
+    private javax.swing.JTextField field_anak2;
+    private javax.swing.JTextField field_anak3;
+    private javax.swing.JTextField field_ibu;
+    private javax.swing.JTextField field_kepkel;
+    private javax.swing.JTextField field_nokk;
     private javax.swing.ButtonGroup group_posisi;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
-    private javax.swing.JRadioButton radio_anak;
-    private javax.swing.JRadioButton radio_ibu;
-    private javax.swing.JRadioButton radio_kepkel;
     // End of variables declaration//GEN-END:variables
 }
