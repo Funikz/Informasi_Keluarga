@@ -168,8 +168,13 @@ public class login extends javax.swing.JFrame {
         } else if (Data.getPosisi().equals("User")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai User`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
+
             welcome_warga welcom1 = new welcome_warga();
             welcom1.setVisible(true);
+
+            welcome_warga wWarga = new welcome_warga();
+            wWarga.setVisible(true);
+
             dispose();
         } else if (Data.getPosisi().equals("Tidakditemukan")){
             JOptionPane.showMessageDialog(this,

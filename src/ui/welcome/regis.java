@@ -176,8 +176,8 @@ public class regis extends javax.swing.JFrame {
             } else if (same) {                                                                  //PERCABANGAN JIKA PASSWORD DAN ULANG PASSWORD SAMA
                 data.setUsername(User_Field.getText());
                 data.setPassword(Pass_Field.getText());
-
-                data.simpan();                                                                          //MENGKOSONGKAN SEMUA TEXTFIELD
+                data.simpan();     
+                empty_data();
             } else if (notsame) {                                                                   //JIKA PASSWORD DAN ULANG PASSWORD TIDAK SAMA
                 JOptionPane.showMessageDialog                                                       //MENAMPILKAN JOPTIONMESSAGE
                         (this, "Password doesn't match", "error", JOptionPane.ERROR_MESSAGE);       //BERISI PASSWORD DOESN'T MATCH
