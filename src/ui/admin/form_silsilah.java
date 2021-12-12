@@ -48,7 +48,7 @@ public class form_silsilah extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Data Penduduk");
-        setLocation(new java.awt.Point(350, 80));
+        setLocation(new java.awt.Point(315, 150));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
