@@ -11,6 +11,7 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import ui.admin.form_manajemen;
 import ui.admin.welcome;
+import ui.warga.welcome_warga;
 
 /**
  *
@@ -168,8 +169,8 @@ public class login extends javax.swing.JFrame {
         } else if (Data.getPosisi().equals("User")) {
             JOptionPane.showMessageDialog(null, "Login Berhasil `Anda sebagai User`",
                     "succes", JOptionPane.INFORMATION_MESSAGE);
-            form_manajemen v = new form_manajemen();
-            v.setVisible(true);
+            welcome_warga wWarga = new welcome_warga();
+            wWarga.setVisible(true);
             dispose();
         } else if (Data.getPosisi().equals("Tidakditemukan")){
             JOptionPane.showMessageDialog(this,

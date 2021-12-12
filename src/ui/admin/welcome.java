@@ -208,6 +208,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_datartMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMousePressed
         // TODO add your handling code here:
         btn_datart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_dataRT2.png")));
+        
+        this.dispose();
+        new ui.admin.form_dataper_rt().setVisible(true);
     }//GEN-LAST:event_btn_datartMousePressed
 
     private void btn_datartMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseReleased
@@ -228,6 +231,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_keluargaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMousePressed
         // TODO add your handling code here:
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_kel2.png")));
+        
+        this.dispose();
+        new ui.admin.form_datakeluarga().setVisible(true);
     }//GEN-LAST:event_btn_keluargaMousePressed
 
     private void btn_keluargaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMouseReleased
@@ -248,6 +254,9 @@ public class welcome extends javax.swing.JFrame {
     private void btn_silsiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMousePressed
         // TODO add your handling code here:
         btn_silsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_silsi2.png")));
+        
+        this.dispose();
+        new ui.admin.form_silsilah().setVisible(true);
     }//GEN-LAST:event_btn_silsiMousePressed
 
     private void btn_silsiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_silsiMouseReleased
@@ -268,6 +277,7 @@ public class welcome extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
+
         this.dispose();
         new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
