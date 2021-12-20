@@ -117,6 +117,7 @@ public class regis extends javax.swing.JFrame {
         Lbl_Masuk.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Lbl_Masuk.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_Masuk.setText("Masuk");
+        Lbl_Masuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Lbl_Masuk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Lbl_MasukMouseClicked(evt);

@@ -6,6 +6,15 @@
 package ui.admin;
 
 import ui.welcome.*;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import Database.Koneksi;
+import BubbleClass.Bubble;
+import BubbleClass.DataRT;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +22,85 @@ import ui.welcome.*;
  */
 public class form_dataper_rt extends javax.swing.JFrame {
 
+    private DefaultTableModel model;
+
     /**
      * Creates new form login
      */
+    Statement stm;
+
     public form_dataper_rt() {
         initComponents();
+
+        model = new DefaultTableModel();
+
+        tabel_per_rt.setModel(model);
+
+        model.addColumn("No. KK");
+        model.addColumn("Nama Kepala Keluarga");
+        model.addColumn("Jumlah Anggota Keluarga");
+
+        getData();
+        tampil();
+
+    }
+
+    public void getData() {
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged();
+
+        try {
+            Koneksi con = new Koneksi();
+
+            String sql = "select * from data_rt";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                this.masukdata(res.getInt(1), res.getString(2), res.getString(3));
+            }
+
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
+    }
+
+    public void ambildata() throws SQLException {
+        String sql = "select * from data_rt";
+        ResultSet res = stm.executeQuery(sql);
+        while (res.next()) {
+            this.masukdata(res.getInt(1), res.getString(2), res.getString(3));
+        }
+    }
+
+    public void masukdata(int nokk, String kepalakeluarga, String anggota) {
+        DefaultTableModel model = (DefaultTableModel) tabel_per_rt.getModel();
+        model.addRow(new Object[]{nokk, kepalakeluarga, anggota});
+    }
+
+    public void tampil() {
+        int maxSize = 100;
+        Bubble arr = new Bubble(maxSize);
+        try {
+            Koneksi con = new Koneksi();
+
+            String sql = "select * from data_rt";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                arr.getInsert(res.getInt(1), res.getString(2), res.getString(3));
+                arr.bubble();
+
+            }
+            String halo = arr.getDisplay();
+            text_data.append(String.valueOf(halo));
+
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
     }
 
     /**
@@ -30,16 +113,15 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        text_data = new javax.swing.JTextArea();
         btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
         btn_keluarga = new javax.swing.JLabel();
         btn_silsi = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
-        Label_NIK = new javax.swing.JLabel();
         Label_dataperrt = new javax.swing.JLabel();
-        field_nokk = new javax.swing.JTextField();
-        btn_update = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabel_per_rt = new javax.swing.JTable();
         dashboardkiri = new javax.swing.JLabel();
@@ -52,6 +134,14 @@ public class form_dataper_rt extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        text_data.setEditable(false);
+        text_data.setColumns(20);
+        text_data.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        text_data.setRows(5);
+        jScrollPane1.setViewportView(text_data);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 770, 180));
 
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
         btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -132,30 +222,10 @@ public class form_dataper_rt extends javax.swing.JFrame {
         logo_mini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo_mini.png"))); // NOI18N
         jPanel1.add(logo_mini, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        Label_NIK.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Label_NIK.setForeground(new java.awt.Color(255, 255, 255));
-        Label_NIK.setText("No. Kartu Keluarga");
-        jPanel1.add(Label_NIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
-
         Label_dataperrt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_dataperrt.setForeground(new java.awt.Color(255, 255, 255));
         Label_dataperrt.setText("Data Keluarga per - RT :");
-        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
-
-        field_nokk.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        field_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nokk.setBorder(null);
-        field_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
-
-        btn_update.setBackground(new java.awt.Color(0, 151, 230));
-        btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setText("Cari");
-        btn_update.setBorder(null);
-        btn_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_update.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
+        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
         tabel_per_rt.setAutoCreateRowSorter(true);
         tabel_per_rt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -182,7 +252,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "NIK", "Nama Kepala Keluarga", "Jumlah Anggota Keluarga"
+                "No. KK", "Nama Kepala Keluarga", "Jumlah Anggota Keluarga"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -202,7 +272,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
             tabel_per_rt.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 770, -1));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 118, 770, 320));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -240,7 +310,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private void btn_manajMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMousePressed
         // TODO add your handling code here:
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_manaj2.png")));
-        
+
         this.dispose();
         new ui.admin.form_manajemen().setVisible(true);
     }//GEN-LAST:event_btn_manajMousePressed
@@ -263,7 +333,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private void btn_keluargaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMousePressed
         // TODO add your handling code here:
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_kel2.png")));
-        
+
         this.dispose();
         new ui.admin.form_datakeluarga().setVisible(true);
     }//GEN-LAST:event_btn_keluargaMousePressed
@@ -286,7 +356,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
-        
+
         this.dispose();
         new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
@@ -386,7 +456,6 @@ public class form_dataper_rt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Label_NIK;
     private javax.swing.JLabel Label_dataperrt;
     private javax.swing.JLabel bgkota;
     private javax.swing.JLabel btn_datart;
@@ -394,13 +463,13 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private javax.swing.JLabel btn_logout;
     private javax.swing.JLabel btn_manaj;
     private javax.swing.JLabel btn_silsi;
-    private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
-    private javax.swing.JTextField field_nokk;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
     private javax.swing.JTable tabel_per_rt;
+    private javax.swing.JTextArea text_data;
     // End of variables declaration//GEN-END:variables
 }

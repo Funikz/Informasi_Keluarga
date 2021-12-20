@@ -182,7 +182,7 @@ public class form_datakeluarga extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "NIK", "Nama Lengkap", "Nama Panggilan", "Alamat", "Posisi"
+                "Kepala Keluarga", "Ibu", "Anak 1", "Anak 2", "Anak 3"
             }
         ) {
             boolean[] canEdit = new boolean [] {

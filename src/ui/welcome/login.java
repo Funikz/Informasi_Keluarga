@@ -101,6 +101,7 @@ public class login extends javax.swing.JFrame {
         Lbl_Daftar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Lbl_Daftar.setForeground(new java.awt.Color(255, 255, 255));
         Lbl_Daftar.setText("Daftar");
+        Lbl_Daftar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Lbl_Daftar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Lbl_DaftarMouseClicked(evt);
@@ -171,10 +172,6 @@ public class login extends javax.swing.JFrame {
 
             welcome_warga welcom1 = new welcome_warga();
             welcom1.setVisible(true);
-
-            welcome_warga wWarga = new welcome_warga();
-            wWarga.setVisible(true);
-
             dispose();
         } else if (Data.getPosisi().equals("Tidakditemukan")){
             JOptionPane.showMessageDialog(this,
