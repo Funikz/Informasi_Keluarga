@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ui.admin;
 
-import ui.welcome.*;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -13,16 +7,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Database.Koneksi;
 import BubbleClass.Bubble;
-import BubbleClass.DataRT;
-import javax.swing.table.DefaultTableModel;
+import GraphClass.Graph;
 
 /**
  *
  * @author Zidan
  */
 public class form_dataper_rt extends javax.swing.JFrame {
-
-    private DefaultTableModel model;
 
     /**
      * Creates new form login
@@ -31,60 +22,15 @@ public class form_dataper_rt extends javax.swing.JFrame {
 
     public form_dataper_rt() {
         initComponents();
-
-        model = new DefaultTableModel();
-
-        tabel_per_rt.setModel(model);
-
-        model.addColumn("No. KK");
-        model.addColumn("Nama Kepala Keluarga");
-        model.addColumn("Jumlah Anggota Keluarga");
-
-        getData();
-        tampil();
-
+        tampil_sorting(); //method dipanggil
+        tampil_graph();
     }
 
-    public void getData() {
-        model.getDataVector().removeAllElements();
-        model.fireTableDataChanged();
-
-        try {
-            Koneksi con = new Koneksi();
-
-            String sql = "select * from data_rt";
-            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
-            Statement stm = conn.prepareStatement(sql);
-            ResultSet res = stm.executeQuery(sql);
-
-            while (res.next()) {
-                this.masukdata(res.getInt(1), res.getString(2), res.getString(3));
-            }
-
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, err.getMessage());
-        }
-    }
-
-    public void ambildata() throws SQLException {
-        String sql = "select * from data_rt";
-        ResultSet res = stm.executeQuery(sql);
-        while (res.next()) {
-            this.masukdata(res.getInt(1), res.getString(2), res.getString(3));
-        }
-    }
-
-    public void masukdata(int nokk, String kepalakeluarga, String anggota) {
-        DefaultTableModel model = (DefaultTableModel) tabel_per_rt.getModel();
-        model.addRow(new Object[]{nokk, kepalakeluarga, anggota});
-    }
-
-    public void tampil() {
+    public void tampil_sorting() {
         int maxSize = 100;
         Bubble arr = new Bubble(maxSize);
         try {
             Koneksi con = new Koneksi();
-
             String sql = "select * from data_rt";
             Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
             Statement stm = conn.prepareStatement(sql);
@@ -93,11 +39,31 @@ public class form_dataper_rt extends javax.swing.JFrame {
             while (res.next()) {
                 arr.getInsert(res.getInt(1), res.getString(2), res.getString(3));
                 arr.bubble();
-
             }
-            String halo = arr.getDisplay();
-            text_data.append(String.valueOf(halo));
+            text_data_sorting.setText(arr.getDisplay());
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
+    }
+    public void tampil_graph() {
+        Graph graf = new Graph();
 
+        try {
+            Koneksi con = new Koneksi();
+            String sql = "select kepala_keluarga from data_rt";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                graf.addVertex(res.getString(1));
+
+                graf.addEdge(0, 1);
+                graf.addEdge(2, 3);
+                graf.addEdge(2, 1);
+            }
+
+            text_data_graph.setText(graf.display());
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, err.getMessage());
         }
@@ -114,7 +80,9 @@ public class form_dataper_rt extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        text_data = new javax.swing.JTextArea();
+        text_data_sorting = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        text_data_graph = new javax.swing.JTextArea();
         btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
         btn_keluarga = new javax.swing.JLabel();
@@ -122,8 +90,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
         Label_dataperrt = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabel_per_rt = new javax.swing.JTable();
+        Label_hub_kel = new javax.swing.JLabel();
         dashboardkiri = new javax.swing.JLabel();
         panel_menu = new javax.swing.JLabel();
         bgkota = new javax.swing.JLabel();
@@ -131,17 +98,26 @@ public class form_dataper_rt extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Data Penduduk");
         setLocation(new java.awt.Point(315, 150));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        text_data.setEditable(false);
-        text_data.setColumns(20);
-        text_data.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        text_data.setRows(5);
-        jScrollPane1.setViewportView(text_data);
+        text_data_sorting.setEditable(false);
+        text_data_sorting.setColumns(20);
+        text_data_sorting.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        text_data_sorting.setRows(5);
+        jScrollPane1.setViewportView(text_data_sorting);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 770, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 770, 290));
+
+        text_data_graph.setEditable(false);
+        text_data_graph.setColumns(20);
+        text_data_graph.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        text_data_graph.setRows(5);
+        jScrollPane2.setViewportView(text_data_graph);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 770, 210));
 
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
         btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -225,54 +201,12 @@ public class form_dataper_rt extends javax.swing.JFrame {
         Label_dataperrt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_dataperrt.setForeground(new java.awt.Color(255, 255, 255));
         Label_dataperrt.setText("Data Keluarga per - RT :");
-        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
+        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
-        tabel_per_rt.setAutoCreateRowSorter(true);
-        tabel_per_rt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tabel_per_rt.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "No. KK", "Nama Kepala Keluarga", "Jumlah Anggota Keluarga"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabel_per_rt.setRowHeight(22);
-        tabel_per_rt.getTableHeader().setResizingAllowed(false);
-        jScrollPane2.setViewportView(tabel_per_rt);
-        if (tabel_per_rt.getColumnModel().getColumnCount() > 0) {
-            tabel_per_rt.getColumnModel().getColumn(0).setResizable(false);
-            tabel_per_rt.getColumnModel().getColumn(1).setResizable(false);
-            tabel_per_rt.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 118, 770, 320));
+        Label_hub_kel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_hub_kel.setForeground(new java.awt.Color(255, 255, 255));
+        Label_hub_kel.setText("Hubungan Keluarga antar Keluarga");
+        jPanel1.add(Label_hub_kel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -295,6 +229,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_manajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseEntered
@@ -457,6 +392,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label_dataperrt;
+    private javax.swing.JLabel Label_hub_kel;
     private javax.swing.JLabel bgkota;
     private javax.swing.JLabel btn_datart;
     private javax.swing.JLabel btn_keluarga;
@@ -469,7 +405,7 @@ public class form_dataper_rt extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
-    private javax.swing.JTable tabel_per_rt;
-    private javax.swing.JTextArea text_data;
+    private javax.swing.JTextArea text_data_graph;
+    private javax.swing.JTextArea text_data_sorting;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,14 @@
  */
 package ui.warga;
 
+import BubbleClass.Bubble;
+import Database.Koneksi;
+import GraphClass.Graph;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import ui.admin.*;
 import ui.welcome.*;
 
@@ -19,6 +27,52 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
      */
     public form_dataper_rt_warga() {
         initComponents();
+        tampil_sorting(); //method dipanggil
+        tampil_graph();
+    }
+
+    public void tampil_sorting() {
+        int maxSize = 100;
+        Bubble arr = new Bubble(maxSize);
+        try {
+            Koneksi con = new Koneksi();
+            String sql = "select * from data_rt";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                arr.getInsert(res.getInt(1), res.getString(2), res.getString(3));
+                arr.bubble();
+            }
+            text_data_sorting.setText(arr.getDisplay());
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
+    }
+
+    public void tampil_graph() {
+        Graph graf = new Graph();
+
+        try {
+            Koneksi con = new Koneksi();
+            String sql = "select kepala_keluarga from data_rt";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                graf.addVertex(res.getString(1));
+
+                graf.addEdge(0, 1);
+                graf.addEdge(2, 3);
+                graf.addEdge(2, 1);
+            }
+
+            text_data_graph.setText(graf.display());
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
     }
 
     /**
@@ -36,9 +90,11 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
         btn_silsi = new javax.swing.JLabel();
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
-        Label_dataperrt = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabel_per_rt = new javax.swing.JTable();
+        text_data_graph = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        text_data_sorting = new javax.swing.JTextArea();
+        Label_dataperrt = new javax.swing.JLabel();
         dashboardkiri = new javax.swing.JLabel();
         panel_menu = new javax.swing.JLabel();
         bgkota = new javax.swing.JLabel();
@@ -111,57 +167,26 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
         logo_mini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo_mini.png"))); // NOI18N
         jPanel1.add(logo_mini, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
+        text_data_graph.setEditable(false);
+        text_data_graph.setColumns(20);
+        text_data_graph.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        text_data_graph.setRows(5);
+        jScrollPane2.setViewportView(text_data_graph);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 770, 210));
+
+        text_data_sorting.setEditable(false);
+        text_data_sorting.setColumns(20);
+        text_data_sorting.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        text_data_sorting.setRows(5);
+        jScrollPane1.setViewportView(text_data_sorting);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 770, 290));
+
         Label_dataperrt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_dataperrt.setForeground(new java.awt.Color(255, 255, 255));
         Label_dataperrt.setText("Data Keluarga per - RT :");
-        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
-
-        tabel_per_rt.setAutoCreateRowSorter(true);
-        tabel_per_rt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tabel_per_rt.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "No. KK", "Nama Kepala Keluarga", "Jumlah Anggota Keluarga"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabel_per_rt.setRowHeight(22);
-        tabel_per_rt.getTableHeader().setResizingAllowed(false);
-        jScrollPane2.setViewportView(tabel_per_rt);
-        if (tabel_per_rt.getColumnModel().getColumnCount() > 0) {
-            tabel_per_rt.getColumnModel().getColumn(0).setResizable(false);
-            tabel_per_rt.getColumnModel().getColumn(1).setResizable(false);
-            tabel_per_rt.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 118, 770, 530));
+        jPanel1.add(Label_dataperrt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -184,6 +209,7 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_keluargaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMouseEntered
@@ -199,7 +225,7 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
     private void btn_keluargaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_keluargaMousePressed
         // TODO add your handling code here:
         btn_keluarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_kel2.png")));
-        
+
         this.dispose();
         new ui.warga.form_datakeluarga_warga().setVisible(true);
     }//GEN-LAST:event_btn_keluargaMousePressed
@@ -222,7 +248,7 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
         // TODO add your handling code here:
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout2.png")));
-        
+
         this.dispose();
         new ui.welcome.login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
@@ -362,9 +388,11 @@ public class form_dataper_rt_warga extends javax.swing.JFrame {
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JLabel dashboardkiri;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
-    private javax.swing.JTable tabel_per_rt;
+    private javax.swing.JTextArea text_data_graph;
+    private javax.swing.JTextArea text_data_sorting;
     // End of variables declaration//GEN-END:variables
 }

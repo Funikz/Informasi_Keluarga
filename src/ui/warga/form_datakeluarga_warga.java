@@ -5,6 +5,12 @@
  */
 package ui.warga;
 
+import Database.Koneksi;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import ui.admin.*;
 import ui.welcome.*;
 
@@ -19,6 +25,31 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
      */
     public form_datakeluarga_warga() {
         initComponents();
+    }
+    
+    public void tampil_data_keluarga() {
+        try {
+            Koneksi con = new Koneksi();
+            String sql = "select NoKK, kepala_keluarga, ibu, anak1, anak2, anak3, alamat from keluarga where NoKK = '"
+                    + txt_nokk.getText() + "'";
+            Connection conn = (Connection) Koneksi.configDB();                                          //MENGKONEKSIKAN KE DATABASE
+            Statement stm = conn.prepareStatement(sql);
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                txt_area_keluarga.setText("Nomor Kartu Keluarga \t: " + res.getString(1) +
+                        "\nKepala Keluarga \t: " + res.getString(2) + 
+                        "\nIbu \t\t: " + res.getString(3) +
+                        "\nAnak Pertama \t\t: " + res.getString(4) +
+                        "\nAnak Kedua \t\t: " + res.getString(5) +
+                        "\nAnak Ketiga \t\t: " + res.getString(6) + 
+                        "\n\nAlamat \t\t: " + res.getString(7));
+
+            }
+            
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+        }
     }
 
     /**
@@ -37,11 +68,11 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
         btn_logout = new javax.swing.JLabel();
         logo_mini = new javax.swing.JLabel();
         Label_nokk = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_area_keluarga = new javax.swing.JTextArea();
         Label_datakeluarga = new javax.swing.JLabel();
-        field_nokk = new javax.swing.JTextField();
-        btn_update = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabel_keluarga = new javax.swing.JTable();
+        txt_nokk = new javax.swing.JTextField();
+        btn_cari = new javax.swing.JButton();
         dashboardkiri = new javax.swing.JLabel();
         panel_menu = new javax.swing.JLabel();
         bgkota = new javax.swing.JLabel();
@@ -119,67 +150,38 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
         Label_nokk.setText("No. Kartu Keluarga");
         jPanel1.add(Label_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
+        txt_area_keluarga.setEditable(false);
+        txt_area_keluarga.setColumns(20);
+        txt_area_keluarga.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txt_area_keluarga.setRows(5);
+        jScrollPane1.setViewportView(txt_area_keluarga);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 770, 420));
+
         Label_datakeluarga.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_datakeluarga.setForeground(new java.awt.Color(255, 255, 255));
         Label_datakeluarga.setText("Data Lengkap Keluarga :");
         jPanel1.add(Label_datakeluarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
 
-        field_nokk.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        field_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        field_nokk.setBorder(null);
-        field_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
-        jPanel1.add(field_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        txt_nokk.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        txt_nokk.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_nokk.setBorder(null);
+        txt_nokk.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(txt_nokk, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
-        btn_update.setBackground(new java.awt.Color(0, 151, 230));
-        btn_update.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setText("Cari");
-        btn_update.setBorder(null);
-        btn_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_update.setPreferredSize(new java.awt.Dimension(160, 50));
-        jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
-
-        tabel_keluarga.setAutoCreateRowSorter(true);
-        tabel_keluarga.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tabel_keluarga.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Kepala Keluarga", "Ibu", "Anak 1", "Anak 2", "Anak 3"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btn_cari.setBackground(new java.awt.Color(0, 151, 230));
+        btn_cari.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_cari.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cari.setText("Cari");
+        btn_cari.setBorder(null);
+        btn_cari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_cari.setPreferredSize(new java.awt.Dimension(160, 50));
+        btn_cari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cariActionPerformed(evt);
             }
         });
-        tabel_keluarga.setRowHeight(22);
-        tabel_keluarga.getTableHeader().setResizingAllowed(false);
-        jScrollPane2.setViewportView(tabel_keluarga);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 770, -1));
+        jPanel1.add(btn_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
         jPanel1.add(dashboardkiri, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -202,6 +204,7 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_datartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datartMouseEntered
@@ -273,6 +276,11 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
         btn_silsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_silsi1.png")));
     }//GEN-LAST:event_btn_silsiMouseReleased
 
+    private void btn_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cariActionPerformed
+        // TODO add your handling code here:
+        tampil_data_keluarga();
+    }//GEN-LAST:event_btn_cariActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -343,17 +351,17 @@ public class form_datakeluarga_warga extends javax.swing.JFrame {
     private javax.swing.JLabel Label_datakeluarga;
     private javax.swing.JLabel Label_nokk;
     private javax.swing.JLabel bgkota;
+    private javax.swing.JButton btn_cari;
     private javax.swing.JLabel btn_datart;
     private javax.swing.JLabel btn_keluarga;
     private javax.swing.JLabel btn_logout;
     private javax.swing.JLabel btn_silsi;
-    private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
-    private javax.swing.JTextField field_nokk;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
-    private javax.swing.JTable tabel_keluarga;
+    private javax.swing.JTextArea txt_area_keluarga;
+    private javax.swing.JTextField txt_nokk;
     // End of variables declaration//GEN-END:variables
 }

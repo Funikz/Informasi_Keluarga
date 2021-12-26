@@ -5,7 +5,7 @@
  */
 package ui.welcome;
 
-import ObjekClass.user;
+import ObjekClass.User;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ public class regis extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    user data = new user();
+    User data = new User();
 
     public void empty_data() {
         User_Field.setText("");

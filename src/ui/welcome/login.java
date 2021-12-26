@@ -6,7 +6,7 @@
 package ui.welcome;
 
 import Database.Koneksi;
-import ObjekClass.user;
+import ObjekClass.User;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import ui.admin.welcome;
@@ -25,7 +25,7 @@ public class login extends javax.swing.JFrame {
         initComponents();
     }
 
-    user Data = new user();
+    User Data = new User();
 
     public void empty_data() {
         User_Field.setText("");

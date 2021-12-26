@@ -5,7 +5,9 @@
  */
 package ui.admin;
 
-import ui.welcome.*;
+import ObjekClass.Keluarga;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -20,6 +22,7 @@ public class form_silsilah extends javax.swing.JFrame {
         initComponents();
     }
 
+    Keluarga family = new Keluarga();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,8 +33,13 @@ public class form_silsilah extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Label_Nokk1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        field_Silsilah = new javax.swing.JTextArea();
+        field_nama = new javax.swing.JTextField();
+        btn_Cari2 = new javax.swing.JButton();
+        Posisi = new javax.swing.JLabel();
+        field_posisi = new javax.swing.JTextField();
         btn_manaj = new javax.swing.JLabel();
         btn_datart = new javax.swing.JLabel();
         btn_keluarga = new javax.swing.JLabel();
@@ -53,11 +61,50 @@ public class form_silsilah extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 54));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Label_Nokk1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_Nokk1.setForeground(new java.awt.Color(255, 255, 255));
+        Label_Nokk1.setText("Nama ");
+        jPanel1.add(Label_Nokk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 770, 420));
+        field_Silsilah.setColumns(20);
+        field_Silsilah.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        field_Silsilah.setRows(5);
+        jScrollPane1.setViewportView(field_Silsilah);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 770, 180));
+
+        field_nama.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        field_nama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        field_nama.setBorder(null);
+        field_nama.setPreferredSize(new java.awt.Dimension(415, 50));
+        jPanel1.add(field_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, -1, -1));
+
+        btn_Cari2.setBackground(new java.awt.Color(0, 151, 230));
+        btn_Cari2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_Cari2.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Cari2.setText("Cari");
+        btn_Cari2.setBorder(null);
+        btn_Cari2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Cari2.setPreferredSize(new java.awt.Dimension(160, 50));
+        btn_Cari2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Cari2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Cari2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 460, -1, -1));
+
+        Posisi.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Posisi.setForeground(new java.awt.Color(255, 255, 255));
+        Posisi.setText("Posisi: ");
+        jPanel1.add(Posisi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, -1, -1));
+
+        field_posisi.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        field_posisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_posisiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(field_posisi, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 560, 770, 80));
 
         btn_manaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Button/btn_manaj.png"))); // NOI18N
         btn_manaj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -161,6 +208,11 @@ public class form_silsilah extends javax.swing.JFrame {
         btn_update.setBorder(null);
         btn_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_update.setPreferredSize(new java.awt.Dimension(160, 50));
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
         dashboardkiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg_dashboardkiri.png"))); // NOI18N
@@ -184,6 +236,7 @@ public class form_silsilah extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_manajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_manajMouseEntered
@@ -278,6 +331,43 @@ public class form_silsilah extends javax.swing.JFrame {
         btn_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/button/btn_logout1.png")));
     }//GEN-LAST:event_btn_logoutMouseReleased
 
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
+        // TODO add your handling code here:
+        family.setNomorKK(field_nokk.getText());
+        family.cari();
+       
+        field_Silsilah.setText(family.TampilkanSilsilah());
+    }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void btn_Cari2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Cari2ActionPerformed
+        int value = 0;
+        if (field_nama.getText().compareToIgnoreCase(family.getKepalaKeluarga())==0){
+            value = 25;
+            family.setPosisi("Kepala Keluarga");
+        } else if (field_nama.getText().compareToIgnoreCase(family.getIbu())==0){
+            value = 75;
+            family.setPosisi("Ibu");
+        } else if (field_nama.getText().compareToIgnoreCase(family.getAnak1())==0){
+            value = 15;
+            family.setPosisi("Anak ke-1");
+        }else if (field_nama.getText().compareToIgnoreCase(family.getAnak2())==0){
+            value = 40;
+            family.setPosisi("Anak ke-2");
+        }else if (field_nama.getText().compareToIgnoreCase(family.getAnak3())==0){
+            value = 60;
+            family.setPosisi("Anak ke-3");
+        } else{
+            JOptionPane.showMessageDialog(null, "Nama Tidak Ditemukan");
+        }
+        family.setValue(value);
+        field_posisi.setText(family.TampilPosisi());
+
+    }//GEN-LAST:event_btn_Cari2ActionPerformed
+
+    private void field_posisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_posisiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_posisiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,6 +401,14 @@ public class form_silsilah extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -321,9 +419,13 @@ public class form_silsilah extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_Nokk1;
     private javax.swing.JLabel Label_nokk;
     private javax.swing.JLabel Label_silsilah;
+    private javax.swing.JLabel Posisi;
     private javax.swing.JLabel bgkota;
+    private javax.swing.JButton btn_Cari1;
+    private javax.swing.JButton btn_Cari2;
     private javax.swing.JLabel btn_datart;
     private javax.swing.JLabel btn_keluarga;
     private javax.swing.JLabel btn_logout;
@@ -331,10 +433,12 @@ public class form_silsilah extends javax.swing.JFrame {
     private javax.swing.JLabel btn_silsi;
     private javax.swing.JButton btn_update;
     private javax.swing.JLabel dashboardkiri;
+    private javax.swing.JTextArea field_Silsilah;
+    private javax.swing.JTextField field_nama;
     private javax.swing.JTextField field_nokk;
+    private javax.swing.JTextField field_posisi;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logo_mini;
     private javax.swing.JLabel panel_menu;
     // End of variables declaration//GEN-END:variables

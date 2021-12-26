@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BubbleClass;
 
 /**
@@ -19,13 +15,10 @@ public class DataRT {
         this.kepalakeluarga = kepalakeluarga;
         this.anggota = anggota;
     }
-    private final String display = displayDataRT();
     
     public String displayDataRT() {
-        System.out.print("\tNo. KK : " + nokk);
-        System.out.print(", Kepala Keluarga : " + kepalakeluarga);
-        System.out.println(", Jumlah Anggota : " + anggota);
-        
+        String display = ("No. KK : "+ nokk + ",\t Kepala Keluarga : "+ 
+                kepalakeluarga + ",\t Jumlah Anggota : " + anggota);
         return display;
     }
 
